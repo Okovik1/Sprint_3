@@ -1,4 +1,4 @@
-package courier1;
+package courier;
 
 public class CourierCredentials {
 

@@ -12,7 +12,7 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 
-public class CreateOrderWithNullColorTest extends OrderFeature{
+public class CreateOrderWithNullColorTest extends OrderFeature {
 
     int bodyResponse;
     OrderClient orderClient;
@@ -46,6 +46,6 @@ public class CreateOrderWithNullColorTest extends OrderFeature{
 
     @After
     public void tearDown() {
-        ValidatableResponse deleteOrder = orderClient.cancelOrder(bodyResponse);
+        orderClient.cancelOrder(bodyResponse);
     }
 }

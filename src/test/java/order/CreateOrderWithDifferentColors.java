@@ -14,7 +14,7 @@ import static org.apache.http.HttpStatus.SC_CREATED;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class CreateOrderWithDifferentColors extends OrderFeature{
+public class CreateOrderWithDifferentColors extends OrderFeature {
 
     int bodyResponse;
     public String ORDER_PATH = "/api/v1/orders";
@@ -28,11 +28,11 @@ public class CreateOrderWithDifferentColors extends OrderFeature{
     @DisplayName("Create order with different colors")
     @Test
     public void createOrderWithDifferentColors() {
-        File json = new File("src/main/resources/orderWithTwoColors.json");
+        File orderWithTwoColors = new File("src/main/resources/orderWithTwoColors.json");
         ValidatableResponse response = given()
                 .header("Content-type", "application/json")
                 .and()
-                .body(json)
+                .body(orderWithTwoColors)
                 .when()
                 .post(ORDER_PATH)
                 .then();
@@ -47,6 +47,6 @@ public class CreateOrderWithDifferentColors extends OrderFeature{
     @After
     public void tearDown() {
         OrderClient orderClient = new OrderClient();
-        ValidatableResponse deleteOrder = orderClient.cancelOrder(bodyResponse);
+        orderClient.cancelOrder(bodyResponse);
     }
 }

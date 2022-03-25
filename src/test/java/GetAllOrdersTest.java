@@ -22,7 +22,7 @@ public class GetAllOrdersTest extends OrderFeature {
 
     @DisplayName("Get all orders")
     @Test
-    public void getAllOrdersTest(){
+    public void getAllOrdersTest() {
         ValidatableResponse response = orderClient.getOrders();
         int statusCode = response.extract().statusCode();
         bodyResponse = response.extract().path("orders.id");

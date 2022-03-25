@@ -1,6 +1,6 @@
 package order;
 
-import courier1.ScooterRestClient;
+import courier.ScooterRestClient;
 import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
 

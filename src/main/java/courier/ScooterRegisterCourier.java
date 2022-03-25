@@ -1,4 +1,4 @@
-package courier1;// импортируем RestAssured
+package courier;// импортируем RestAssured
 // импортируем Response
 import io.restassured.response.Response;
 // импортируем библиотеку генерации строк

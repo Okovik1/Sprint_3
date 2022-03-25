@@ -1,4 +1,4 @@
-package courier1;
+package courier;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;

@@ -1,8 +1,8 @@
 package createcourier;
 
-import courier1.Courier;
-import courier1.CourierClient;
-import courier1.CourierCredentials;
+import courier.Courier;
+import courier.CourierClient;
+import courier.CourierCredentials;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
@@ -17,11 +17,10 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 
-public class CourierCreationPositiveTest extends CourierFeature{
+public class CourierCreationPositiveTest extends CourierFeature {
 
     CourierClient courierClient;
     Courier courier;
-
 
     @Before
     public void setUp() {
@@ -39,12 +38,11 @@ public class CourierCreationPositiveTest extends CourierFeature{
 
         assertThat("Something went wrong, status != 201", statusCode, equalTo(SC_CREATED));
         assertThat("Boolean expression is not true", bodyResponse, is(true));
-
     }
 
     @After
-    public void tearDown(){
-        ValidatableResponse loggedInCourier= courierClient.loginCourier(new CourierCredentials(courier.getLogin(), courier.getPassword()));
+    public void tearDown() {
+        ValidatableResponse loggedInCourier = courierClient.loginCourier(new CourierCredentials(courier.getLogin(), courier.getPassword()));
         int id = loggedInCourier.extract().body().path("id");
         courierClient.deleteCourier(id);
     }

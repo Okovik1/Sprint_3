@@ -1,8 +1,8 @@
 package login;
 
-import courier1.Courier;
-import courier1.CourierClient;
-import courier1.CourierCredentials;
+import courier.Courier;
+import courier.CourierClient;
+import courier.CourierCredentials;
 import createcourier.CourierFeature;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
@@ -32,7 +32,7 @@ public class CourierLoginPositiveTest extends CourierFeature {
     @DisplayName("Login courier")
     @Description("Verify positive courier login")
     @Test
-    public void courierLoginPositiveTest(){
+    public void courierLoginPositiveTest() {
         ValidatableResponse response = courierClient.loginCourier(new CourierCredentials(courier.getLogin(), courier.getPassword()));
         int statusCode = response.extract().statusCode();
         bodyResponse = response.extract().path("id");
@@ -42,7 +42,7 @@ public class CourierLoginPositiveTest extends CourierFeature {
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() {
         courierClient.deleteCourier(bodyResponse);
     }
 }
